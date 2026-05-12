@@ -117,12 +117,13 @@ The system executed each test case and verified whether the returned result matc
 
 Interpreting Test Results
 
-Passing Tests:
+Passing tests:
+
 If all assertions are correct, the program executes successfully without displaying errors. A success message is shown in the terminal:
-===================================
+
 All test cases executed successfully
 7/7 tests passed
-===================================
+
 Failing Tests:
 
 If the actual output does not match the expected output, Python displays an AssertionError. This indicates that the tested functionality is not behaving correctly.
