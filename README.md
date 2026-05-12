@@ -42,3 +42,102 @@ Invalid event IDs may be accepted
 The database may store incorrect information
 
 The event registration process is critical because it directly affects the core functionality of the platform and user experience.
+
+5. Writing Test Code
+
+def register_event(student_id, event_id, registered_events):
+
+    if student_id == "" or event_id == "":
+        return "Student ID and Event ID are required"
+
+    if not isinstance(student_id, int) or not isinstance(event_id, int):
+        return "Invalid input type"
+
+    if event_id not in [1, 2, 3, 4, 5]:
+        return "Event does not exist"
+
+    if (student_id, event_id) in registered_events:
+        return "Student already registered"
+
+    registered_events.append((student_id, event_id))
+    return "Registration successful"
+
+
+def test_valid_registration():
+    registered_events = []
+    result = register_event(101, 1, registered_events)
+    assert result == "Registration successful"
+
+
+def test_duplicate_registration():
+    registered_events = [(101, 1)]
+    result = register_event(101, 1, registered_events)
+    assert result == "Student already registered"
+
+
+def test_invalid_event():
+    registered_events = []
+    result = register_event(101, 99, registered_events)
+    assert result == "Event does not exist"
+
+
+def test_empty_student_id():
+    registered_events = []
+    result = register_event("", 1, registered_events)
+    assert result == "Student ID and Event ID are required"
+
+
+def test_empty_event_id():
+    registered_events = []
+    result = register_event(101, "", registered_events)
+    assert result == "Student ID and Event ID are required"
+
+
+def test_both_fields_empty():
+    registered_events = []
+    result = register_event("", "", registered_events)
+    assert result == "Student ID and Event ID are required"
+
+
+def test_invalid_data_type():
+    registered_events = []
+    result = register_event("student", 1, registered_events)
+    assert result == "Invalid input type"
+
+
+6. Running Tests
+
+The tests were executed using Python in Visual Studio Code. A separate test file named TESTING.py was created containing all test cases related to the Event Registration component.
+
+The tests were run using the following command in the terminal:
+
+TETSING.py
+
+The system executed each test case and verified whether the returned result matched the expected output using Python assertions.
+
+Interpreting Test Results
+
+Passing Tests:
+If all assertions are correct, the program executes successfully without displaying errors. A success message is shown in the terminal:
+===================================
+All test cases executed successfully
+7/7 tests passed
+===================================
+Failing Tests:
+
+If the actual output does not match the expected output, Python displays an AssertionError. This indicates that the tested functionality is not behaving correctly.
+
+Errors:
+Errors occur when the program encounters issues such as syntax mistakes, missing variables, or invalid code structure. These errors prevent the tests from running completely.
+
+
+Test Execution Summary
+
+Test Case	                 Status
+Valid registration	       Passed
+Duplicate registration	   Passed
+Invalid event ID	         Passed
+Empty student ID	         Passed
+Empty event ID	           Passed
+Both fields empty	         Passed
+Invalid data type	         Passed
