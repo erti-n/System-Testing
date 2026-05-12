@@ -63,43 +63,43 @@ def register_event(student_id, event_id, registered_events):
     return "Registration successful"
 
 
-def test_valid_registration():
+    def test_valid_registration():
     registered_events = []
     result = register_event(101, 1, registered_events)
     assert result == "Registration successful"
 
 
-def test_duplicate_registration():
+    def test_duplicate_registration():
     registered_events = [(101, 1)]
     result = register_event(101, 1, registered_events)
     assert result == "Student already registered"
 
 
-def test_invalid_event():
+    def test_invalid_event():
     registered_events = []
     result = register_event(101, 99, registered_events)
     assert result == "Event does not exist"
 
 
-def test_empty_student_id():
+    def test_empty_student_id():
     registered_events = []
     result = register_event("", 1, registered_events)
     assert result == "Student ID and Event ID are required"
 
 
-def test_empty_event_id():
+    def test_empty_event_id():
     registered_events = []
     result = register_event(101, "", registered_events)
     assert result == "Student ID and Event ID are required"
 
 
-def test_both_fields_empty():
+    def test_both_fields_empty():
     registered_events = []
     result = register_event("", "", registered_events)
     assert result == "Student ID and Event ID are required"
 
 
-def test_invalid_data_type():
+    def test_invalid_data_type():
     registered_events = []
     result = register_event("student", 1, registered_events)
     assert result == "Invalid input type"
@@ -134,10 +134,40 @@ Errors occur when the program encounters issues such as syntax mistakes, missing
 Test Execution Summary
 
 Test Case	                 Status
-Valid registration	       Passed
-Duplicate registration	   Passed
+Valid registration	         Passed
+Duplicate registration	     Passed
 Invalid event ID	         Passed
 Empty student ID	         Passed
-Empty event ID	           Passed
+Empty event ID	             Passed
 Both fields empty	         Passed
 Invalid data type	         Passed
+
+
+7. Test Coverage
+
+Test coverage is important because it measures how much of the software functionality is tested. High test coverage helps ensure that the application behaves correctly under different conditions and reduces the possibility of undetected bugs.
+
+For the Epoka Student Event Platform, the implemented tests cover the most important scenarios of the Event Registration component, including:
+-Successful event registration
+-Duplicate registration attempts
+-Invalid event IDs
+-Empty input fields
+-Invalid data types
+-Validation handling
+
+These tests cover:
+
+-Normal user behavior
+-Invalid user input
+-Boundary and failure conditions
+
+The testing process ensures that the registration functionality behaves correctly in both expected and unexpected situations.
+
+Although the current tests cover the main logic of the component, future improvements may include:
+
+-Database integration testing
+-Frontend/UI testing
+-Security testing
+-Performance and load testing
+
+Overall, the implemented tests provide good coverage for the critical paths and failure scenarios of the Event Registration component.
