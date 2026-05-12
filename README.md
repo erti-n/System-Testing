@@ -171,3 +171,21 @@ Although the current tests cover the main logic of the component, future improve
 -Performance and load testing
 
 Overall, the implemented tests provide good coverage for the critical paths and failure scenarios of the Event Registration component.
+
+
+SUGGESTED REPORT STRUCTURE
+
+
+INTRODUCTION  - - Software testing is the process of evaluating software to identify bugs, defects, and unexpected behavior. Testing is important because it improves software reliability, correctness, security, and maintainability.
+
+CHOSEN COMPONENT - - The selected component is the Event Registration Function. This component allows students to register for events and prevents duplicate or invalid registrations. It was selected because it is one of the core functionalities of the Epoka Student Event Platform.
+
+TEST CASES - - The test cases include valid registration, duplicate registration, invalid event ID, empty fields, and invalid data types. Each test case contains expected outputs to verify correct system behavior.
+
+TESTING TOOLS - - Python assertions were used to perform testing. Visual Studio Code was used as the development environment and terminal execution tool.
+
+TEST CODE - - Separate Python test functions were implemented inside the TESTING.py file. Assertions were used to compare expected and actual outputs for each test scenario.
+
+EXECUTION RESULTS - - All implemented tests executed successfully. The results showed that valid registrations passed correctly while invalid scenarios returned appropriate validation messages and errors.
+
+COVERAGE AND REFLECTION - - The tests covered the most important paths of the Event Registration component, including normal usage, invalid inputs, and failure conditions. Future improvements may include database testing, UI testing, security testing, and performance testing.
